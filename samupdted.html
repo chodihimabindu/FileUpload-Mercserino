@@ -1,0 +1,325 @@
+<html>
+<head>
+ <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   -->
+
+<!-- jQuery library -->
+ <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   -->
+
+<!-- Latest compiled JavaScript -->
+ <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    -->
+</head>
+<style>
+
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+.file-upload {
+  background-color: #e0f7fd;
+  width: 906px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border: 1px solid #5bbecc;
+  border-color:#39a9b9;
+}
+
+.file-upload-btn {
+  width: 10%;
+  margin: 0;
+  color: #fff;
+  background: #5bbecc;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #5bbecc;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #46b1c0;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-content2 {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+ 
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+ 
+  position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #5bbecc;
+  border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #77898c;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #15824B;
+  padding: 60px 0;
+}
+
+.file-upload-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.remove-image {
+  width: 110px;
+  margin: 0;
+  color: #fff;
+  background: #5bbecc;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #5bbecc;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #8bdbe6;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+
+
+table, td, th {
+    border: 1px solid #5bbecc;
+	 border-collapse: collapse;
+    width: 50%;
+}
+
+.button {
+    border: none;
+    background: url('../bg.png') no-repeat ;
+    padding: 2px 8px;
+}
+
+
+
+
+
+
+</style>
+
+
+<center>
+<body>
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div id="erroMsg"></div>
+<table>
+<tr>
+<td>
+<div class="form-check radio-pink-gap ">
+    <input name="group103" type="radio" class="with-gap" id="radio109">
+    <label for="radio109">Upload File</label>
+</div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+        <div class="file-upload">  
+            <label for="pic"> <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add File</button> </label>  </br>
+</td>
+</tr>
+  
+  <div class="image-upload-w">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" data-max-size='32k' id="file" class="demoInputBox"    id="pic"/> <span id="file_error"></span>
+   
+  </div>
+  
+<tr><td> </br> Allowed file types: PDF | DOC | DOCX  </td></tr>
+  
+ 
+  
+ 
+  <tr>
+  <td>
+              <div class="file-upload-content">
+			  <table>
+			    <tbody>
+                 <tr>
+                     <th>File Name</th>
+                     <th>Date</th>
+                     <th>  </th>
+                 </tr>
+				 <tr>
+                    <td> <span class="image-title">Uploaded File </span> <!-- <input type="file" class="file-upload-image" src="#" /> -->  </td>
+					<td></td>
+			                                  <span  style=" display: inline-block; " > <td>  &nbsp; &nbsp; <button type="button"  class="remove-image start_form" >Start <!--<span class="image-title">Uploaded Image</span> -->  </button>   &nbsp; 
+											  <button type="button" onclick="removeUpload()" class="remove-image">Cancel <!--<span class="image-title">Uploaded Image</span> -->  </button>  </td>  </span>
+                  <!-- <div class="image-title-wrap   accept=".doc, .docx, .pdf"    ">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title"  onclick="$('.file-upload-content2').trigger( 'click' )">Uploaded Image</span>  </button>
+                        </div> -->
+					
+                 </tr> 	
+                <tbody>				 
+				</table>		
+				</div>
+	</td>
+	</tr>
+	
+ 
+  
+  
+  <tr>
+  <td>
+  <div class="file-upload-content2">
+<table>
+ <tbody>
+  <tr>
+    <th>File Name</th>
+    <th>Date</th>
+    <th>  </th>
+  </tr>
+  <tr>
+    <td><span class="image-title">File Name</span></td>
+    <td><p id="date"></p></td>
+    <td><a href="#"  onclick="removeUpload()" >Remove</a></td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+  </td>
+  </tr>
+  
+</div>
+</table>
+</body>
+</center>
+
+<script>
+
+
+function readURL(input) {
+  if (input.files) {
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+	
+	
+	 var file = $('.file-upload-input').val();
+    var exts = ['doc','docx' , 'pdf'];
+    // first check if file field has any value
+    if ( file ) {
+        // split file name at dot
+        var get_ext = file.split('.');
+        // reverse name to check extension
+        get_ext = get_ext.reverse();                           
+        // check file type is valid as given in 'exts' array
+        if ( $.inArray ( get_ext[0].toLowerCase(), exts ) > -1 ){
+          
+      $('.image-upload-wrap').hide();
+            $("#erroMsg").hide();
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+	  $('.file-upload-btn').prop('disabled', true).css("button", "disabled").css( "background-color", "#cccccc")
+       
+        } else {
+            $("#erroMsg").html("This type is not allowed").css("color", "red").css("fontSize", "20px").show();
+           // alert( 'Invalid file!' );
+	  $('.file-upload-content2').hide();
+
+             
+        }
+    }    
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+$('.start_form').on("click", function(){
+  $('.file-upload-content2').show();
+  
+  $('.file-upload-content').hide();
+  // $('.file-upload-btn').prop('disabled', true)
+});
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').hide();
+   $('.file-upload-btn').show();
+  $('.file-upload-btn').prop('disabled', false).css("button", "disabled").css( "background-color", "#5bbecc")
+   $('.file-upload-content2').hide();
+   
+}
+$('.image-upload-wrap').bind('dragover', function () {
+		$('.image-upload-wrap').addClass('image-dropping');
+	});
+	$('.image-upload-wrap').bind('dragleave', function () {
+		$('.image-upload-wrap').removeClass('image-dropping');
+});
+
+</script>
+
+<script>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+
+</script>
+
+</html>
